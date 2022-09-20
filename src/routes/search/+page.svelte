@@ -4,7 +4,7 @@
 	// export let form
 	// $: results = data.results
 	
-	import historyStore from '../../store';
+	import historyStore from '../history/store';
 	import { api } from './api';
 	let submit
 	async function handleSubmit(e) {

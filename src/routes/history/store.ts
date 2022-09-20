@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-const history = writable<Array<string>> (['baba', 'pummel'])
+const history = writable<Array<string>> ([])
 
 const historyStore = {
     subscribe: history.subscribe,

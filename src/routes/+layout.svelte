@@ -8,9 +8,3 @@
 	<slot />
 </main>
 
-<!-- <footer>
-    <hr>
-    <p>
-        <small>GITHUB LINK</small>
-    </p>
-</footer> -->
