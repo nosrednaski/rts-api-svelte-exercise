@@ -1,17 +1,10 @@
 <script lang="ts">
-	// import type { PageData, ActionData } from './$types';
-	// export let data: PageData
-	// export let form
-	// $: results = data.results
+	import { enhance } from '$app/forms';
+	import type { PageData, ActionData } from './$types';
+	export let data: PageData
+	export let form
+	$: results = data.results
 	
-	import historyStore from '../history/store';
-	import { api } from './api';
-	let submit
-	async function handleSubmit(e) {
-		let query = e.target[0].value
-		submit = api(query)
-        historyStore.updateHistory(query)
-	}
 	
 </script>
 
@@ -25,7 +18,7 @@
 <div>
 	<h2>Search</h2>
 	
-	<!-- <form 
+	<form 
 		action="?/search"
 		use:enhance={() => {
 			return ({ form, result }) => {
@@ -39,15 +32,8 @@
 			aria-label="search hacker news" 
 			placeholder="Find a topic on hacker news"
 		>
-		<button on:click = {submit} type="submit">Submit</button>
-	</form> -->
-	<form 
-		on:submit|preventDefault={handleSubmit} method="post"
-	>
-		<input type="text" aria-label="search hacker news" 
-		placeholder="Find a topic on hacker news" name="query"/>
-		<button type="submit">Submit</button>
 	</form>
+	
 
 	{#if submit}
 		{#await submit}
