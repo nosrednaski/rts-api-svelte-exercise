@@ -1,7 +1,7 @@
 import { api } from './api';
+import historyStore from '../history/store';
 import type { PageServerLoad, Actions } from './$types';
-import historyStore from '../../store';
-
+const results = {}
 
 
 export const actions: Actions = {
@@ -26,6 +26,12 @@ export const actions: Actions = {
             results: newResults
         }
 
+    }
+}
+
+export function load() {
+    return {
+        results: results
     }
 }
 

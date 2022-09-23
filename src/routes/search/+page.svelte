@@ -2,10 +2,7 @@
 	import { enhance } from '$app/forms';
 	import type { PageData, ActionData } from './$types';
 	export let data: PageData
-	export let form
 	$: results = data.results
-	
-	
 </script>
 
 
@@ -35,8 +32,8 @@
 	</form>
 	
 
-	{#if submit}
-		{#await submit}
+	{#if results.length === 0}
+		{#await results}
 			<p>Sending...</p>
 		{:then results}
 			{#each results as result}
