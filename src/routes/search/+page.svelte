@@ -1,9 +1,4 @@
 <script lang="ts">
-	// import type { PageData, ActionData } from './$types';
-	// export let data: PageData
-	// export let form
-	// $: results = data.results
-	
 	import historyStore from '../history/store';
 	import { api } from './api';
 	let submit
@@ -25,22 +20,7 @@
 <div>
 	<h2>Search</h2>
 	
-	<!-- <form 
-		action="?/search"
-		use:enhance={() => {
-			return ({ form, result }) => {
-				if (result.type === 'success') {
-					form.reset();
-				}
-			};
-		}}
-	>
-		<input 
-			aria-label="search hacker news" 
-			placeholder="Find a topic on hacker news"
-		>
-		<button on:click = {submit} type="submit">Submit</button>
-	</form> -->
+	
 	<form 
 		on:submit|preventDefault={handleSubmit} method="post"
 	>
