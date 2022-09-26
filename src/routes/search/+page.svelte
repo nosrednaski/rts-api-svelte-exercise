@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import type { ActionData, PageData } from './$types';
-	export let data
-	export let form
-	export let results
+	import type { PageData } from './$types';
+	export let form: PageData
 
 </script>
 
@@ -20,16 +18,15 @@
 	<form 
 		action="?/search"
 		method="POST"
-		use:enhance={({form, data, cancel}) => {
-			return ({  result }) => {
-				if (result.type === 'success') {
-					console.log('result in form:::', result.data)
-					results = result.data
-					form.reset();
-				}
-			};
-		}}
+		
 	>
+	<!-- use:enhance={({form, data, cancel}) => {
+		return ({ result }) => {
+			if (result.type === 'success') {
+				form.reset();
+			}
+		}
+	}} -->
 		<input 
 			aria-label="search hacker news" 
 			placeholder="Find a topic on hacker news"
@@ -38,12 +35,12 @@
 	</form>
 	
 
-	{#if results?.success}
-			{#each results.hits as result}
-				<p>
-					<a href="{result.url}">{result.title}</a> 
-				</p>
-			{/each}
+	{#if form?.success}
+		{#each form.hits as result}
+			<p>
+				<a href="{result.url}">{result.title}</a> 
+			</p>
+		{/each}
 	{/if}
 
 
