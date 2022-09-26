@@ -22,7 +22,7 @@ export const actions: Actions = {
         )
         console.log('api call',)
         return {
-            results: newResults,
+            hits: newResults,
             success: true
         }
 

@@ -3,6 +3,7 @@
 	import type { ActionData, PageData } from './$types';
 	export let data
 	export let form
+	export let results
 
 </script>
 
@@ -18,10 +19,12 @@
 	
 	<form 
 		action="?/search"
+		method="POST"
 		use:enhance={({form, data, cancel}) => {
 			return ({  result }) => {
 				if (result.type === 'success') {
 					console.log('result in form:::', result.data)
+					results = result.data
 					form.reset();
 				}
 			};
@@ -34,20 +37,12 @@
 	</form>
 	
 
-	{#if form?.success}
-		<p>{data}</p>
-		<p>success</p>
-
-		<!-- {#await form}
-			<p>Sending...</p>
-		{:then results}
-			{#each results as result}
+	{#if results?.success}
+			{#each results.hits as result}
 				<p>
 					<a href="{result.url}">{result.title}</a> 
 				</p>
 			{/each}
-
-		{/await} -->
 	{/if}
 
 
