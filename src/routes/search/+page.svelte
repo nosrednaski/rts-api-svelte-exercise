@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
 	import type { PageData } from './$types';
 	export let form: PageData
 
@@ -18,15 +17,8 @@
 	<form 
 		action="?/search"
 		method="POST"
-		
 	>
-	<!-- use:enhance={({form, data, cancel}) => {
-		return ({ result }) => {
-			if (result.type === 'success') {
-				form.reset();
-			}
-		}
-	}} -->
+	
 		<input 
 			aria-label="search hacker news" 
 			placeholder="Find a topic on hacker news"

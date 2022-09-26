@@ -15,13 +15,11 @@ export const actions: Actions = {
         // call api
         let data: Array<Object> = await api(query)
 
-        //set titles and urls of results in an array of objects to be consumed by page as page data
-        let newResults = data.map( 
-            (hit) => ({ title: hit.title, url: hit.url})
-        )
         console.log('api call', query)
+
+        // return object with status, what the query was and the resulting data
         return {
-            hits: newResults,
+            hits: data,
             success: true,
             query: query
         }
