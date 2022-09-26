@@ -20,10 +20,11 @@ export const actions: Actions = {
         let newResults = data.map( 
             (hit) => ({ title: hit.title, url: hit.url})
         )
-        console.log('api call',)
+        console.log('api call', query)
         return {
             hits: newResults,
-            success: true
+            success: true,
+            query: query
         }
 
     }

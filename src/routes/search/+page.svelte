@@ -33,6 +33,7 @@
 		<input 
 			aria-label="search hacker news" 
 			placeholder="Find a topic on hacker news"
+			name="query"
 		>
 	</form>
 	
