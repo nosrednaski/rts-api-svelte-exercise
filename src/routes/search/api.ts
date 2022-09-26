@@ -1,4 +1,3 @@
-import { error } from '@sveltejs/kit';
 
 const base = 'http://hn.algolia.com/api/v1/search?query='
 
