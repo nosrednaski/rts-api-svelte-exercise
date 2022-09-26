@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import type { PageData, ActionData } from './$types';
-	export let data: PageData
-	$: results = data.results
+	import type { ActionData, PageData } from './$types';
+	export let data
+	export let form
+
 </script>
 
 
@@ -17,9 +18,10 @@
 	
 	<form 
 		action="?/search"
-		use:enhance={() => {
-			return ({ form, result }) => {
+		use:enhance={({form, data, cancel}) => {
+			return ({  result }) => {
 				if (result.type === 'success') {
+					console.log('result in form:::', result.data)
 					form.reset();
 				}
 			};
@@ -32,8 +34,11 @@
 	</form>
 	
 
-	{#if results.length === 0}
-		{#await results}
+	{#if form?.success}
+		<p>{data}</p>
+		<p>success</p>
+
+		<!-- {#await form}
 			<p>Sending...</p>
 		{:then results}
 			{#each results as result}
@@ -42,9 +47,9 @@
 				</p>
 			{/each}
 
-		{/await}
+		{/await} -->
 	{/if}
-		
+
 
 
 	

@@ -1,7 +1,6 @@
 import { api } from './api';
 import historyStore from '../history/store';
-import type { PageServerLoad, Actions } from './$types';
-const results = {}
+import type { Actions } from './$types';
 
 
 export const actions: Actions = {
@@ -21,17 +20,14 @@ export const actions: Actions = {
         let newResults = data.map( 
             (hit) => ({ title: hit.title, url: hit.url})
         )
-        // console.log('', newResults)
+        console.log('api call',)
         return {
-            results: newResults
+            results: newResults,
+            success: true
         }
 
     }
 }
 
-export function load() {
-    return {
-        results: results
-    }
-}
+
 
