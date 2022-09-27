@@ -1,6 +1,11 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	export let form: PageData
+	import history from '../history/store';
+	if (form?.success) {
+		history.update(oldHistory => [...oldHistory, form.query])
+		console.log('store from search page: ',$history)
+	}
 
 </script>
 

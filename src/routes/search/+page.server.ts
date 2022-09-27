@@ -1,5 +1,4 @@
 import { api } from './api';
-import historyStore from '../history/store';
 import type { Actions } from './$types';
 
 export const actions: Actions = {
@@ -10,7 +9,6 @@ export const actions: Actions = {
         let query: string = form.get('query')
 
         //add query to history in store
-        historyStore.updateHistory(query)
 
         // call api
         let data: Array<Object> = await api(query)
